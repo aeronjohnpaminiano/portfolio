@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ITEC 55 Portfolio</title>
+  <style>
+    /* ---------- Theme ---------- */
+    :root {
+      --bg: #f5f7fa;
+      --primary: #2563eb;
+      --secondary: #1e293b;
+      --muted: #64748b;
+      --card: #ffffff;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--secondary);
+      min-height: 100vh;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 16px 32px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .brand { font-weight: 700; letter-spacing: 1px; }
+    nav { display: flex; gap: 14px; }
+    nav a {
+      color: white; text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      padding: 6px 12px; border-radius: 6px;
+    }
+    nav a.active { background: rgba(255,255,255,0.2); }
+    nav a:hover { background: rgba(255,255,255,0.15); }
+
+    /* ---------- Layout ---------- */
+    .container { max-width: 900px; margin: 40px auto; padding: 0 16px; }
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: 22px; margin-bottom: 12px; }
+    h2 { font-size: 18px; margin-bottom: 10px; }
+    .muted { color: var(--muted); font-size: 14px; }
+
+    /* ---------- Sections ---------- */
+    .section { display: none; }
+    .section.active { display: block; }
+
+    ul.list { list-style: none; margin-top: 8px; }
+    .list li {
+      padding: 10px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">My Portfolio</div>
+    <nav>
+      <a class="active" onclick="showSection('all', this)">All</a>
+      <a onclick="showSection('seatwork', this)">Seatwork</a>
+      <a onclick="showSection('quizzes', this)">Quizzes</a>
+      <a onclick="showSection('labs', this)">Labs</a>
+      <a onclick="showSection('exam', this)">Exam</a>
+    </nav>
+  </header>
+
+
+  <main class="container">
+    <div class="card">
+      <h1>Portfolio <span class="muted">ITEC 55</span></h1>
+
+      <section id="all" class="section active">
+        <h2>All Works</h2>
+        <p class="muted">Here are all the activities and submissions.</p>
+      </section>
+
+
+      <section id="seatwork" class="section">
+        <h2>Seatwork</h2>
+        <p class="muted">No seatwork available yet.</p>
+      </section>
+
+
+      <section id="quizzes" class="section">
+        <h2>Quizzes</h2>
+        <ul class="list">
+          <li>Quiz #1 — <span class="muted">N/A</span></li>
+        </ul>
+      </section>
+
+
+      <section id="labs" class="section">
+        <h2>Lab Activities</h2>
+        <p class="muted">Laboratory works and reports.</p>
+      </section>
+
+
+      <section id="exam" class="section">
+        <h2>Exam</h2>
+        <p class="muted">Final exam submission and scores.</p>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    function showSection(id, el) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+
+      document.getElementById(id).classList.add('active');
+      el.classList.add('active');
+    }
+  </script>
+</body>
+</html>
+```
